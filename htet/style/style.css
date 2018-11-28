@@ -24,10 +24,9 @@ body {
 }
 
 .jumbotron {
-    background-image: url("images/wine_picnic.jpg");
+    background-image: url("../images/wine_picnic.jpg");
     background-size: cover;
     background-attachment: fixed;
-    background-position: left bottom;
     height: 600px;
     text-align: center;
 }
