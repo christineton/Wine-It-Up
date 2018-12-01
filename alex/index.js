@@ -59,7 +59,7 @@ function filterVariety(review) {
 };
 // filter for state
 function filterState(review) {
-    return review.state == $stateInput.value.trim();
+    return review.province == $stateInput.value.trim();
 };
 
 // filter for taster name
@@ -90,9 +90,9 @@ function filterInput(event) {
 
     // Filters
 
-    if ($countryInput.value) {
-        filteredReviews = filteredReviews.filter(filterCountry);
-    };
+    // if ($countryInput.value) {
+    //     filteredReviews = filteredReviews.filter(filterCountry);
+    // };
 
     if ($varietyInput.value) {
         filteredReviews = filteredReviews.filter(filterVariety);
@@ -114,13 +114,12 @@ function filterInput(event) {
         filteredReviews = filteredReviews.filter(filterPrice);
     };
 
-    // if (!$dateInput && !$cityInput && !$stateInput && !$countryInput && !$shapeInput) {
-    //     filteredReviews = dataSet;
-    // };
+    if (!$varietyInput && !$stateInput && !$tasterInput && !$wineryInput && !$priceInput) {
+        filteredReviews = dataSet;
+    };
 
     // Reset inputs
 
-    $countryInput.value = "";
     $varietyInput.value = "";
     $tasterInput.value = "";
     $stateInput.value = "";
