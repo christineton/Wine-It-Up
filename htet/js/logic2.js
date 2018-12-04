@@ -41,17 +41,33 @@ function createMap(winePoints) {
     L.control.layers(baseMaps, overlayMaps, {
         collapsed: false
     }).addTo(myMap);
+
+    // controlPanel.onAdd = function() {
+    //     var div = L.DomUtil.create('div', 'legend');
+    //     return div;
+    // };
+
+    // controlPanel.addTo(myMap);
 };
 
 function createMarkers(wineData) {
     var wineSpots = [];
+
+    // TO FIX: Only shows icon and doesn't show the marker
+    var specialMarker = L.ExtraMarkers.icon({
+        icon: 'fa-wine-glass-alt',
+        iconColor: 'red',
+        markerColor: 'red',
+        shape: 'circle',
+        prefix: 'fa'
+    });
 
     for (var i = 0; i < 100; i++) {
         var lat = wineData[i].Latitude;
 
         var lon = wineData[i].Longitude;
 
-        var wineSpot = L.marker([lat, lon])
+        var wineSpot = L.marker([lat, lon], {icon: specialMarker})
             .bindPopup("<h4>" + wineData[i].title + "<hr> Price per Bottle: " + wineData[i].price + "</h4>");
         
         wineSpots.push(wineSpot);

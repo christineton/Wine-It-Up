@@ -6,7 +6,7 @@ var myMap = L.map('map', {
     // layers: [streetmap, marker]
 });
 
-d3.csv('../data/wine_data_coords.csv', function(error, wineData) {
+d3.csv('../data/wine_data_coords_2.csv', function(error, wineData) {
     if (error) throw error;
     console.log(wineData);
 
