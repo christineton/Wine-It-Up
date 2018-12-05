@@ -24,7 +24,7 @@ body {
 }
 
 .jumbotron {
-    background-image: url("../images/wine_picnic.jpg");
+    background-image: url("../images/wine_3.jpg");
     background-size: cover;
     background-attachment: fixed;
     height: 600px;
@@ -35,16 +35,22 @@ body {
     margin-top: 80px;
     size: 72px;
     font-family: 'Aclonica';
+    color: #33132e;
     /* animation-name: zoom-in;
     animation-duration: 3s; */
 }
 
-/* .jumbotron-p {
-    margin-top: 10px;
-    animation-name: blink;
-    animation-duration: 3s;
-} */
+.jumbotron-p {
+    margin-top: 30px;
+    color: black;
+    /* background-color: darkgray; */
+    /* animation-name: blink;
+    animation-duration: 3s; */
+}
 
+.jumbotron-p:hover {
+    background-color: #f2f8959f;
+}
 #wine-img {
     height: 20px;
     display: inline-block;
