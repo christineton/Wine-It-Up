@@ -4,24 +4,23 @@ import Twitter_Review
 
 # Use flask_pymongo to set up mongo connection
 app = Flask(__name__)
-mongo = PyMongo(app, uri=“mongodb://localhost:27017/wine_single_review_db”)
+mongo = PyMongo(app, uri="mongodb://localhost:27017/wine_single_review_db")
 
-print(mongo)
 # route
-@app.route(“/”)
+@app.route("/")
 def index():
-   wine = mongo.db.wine_single_review_db.find_one()
-   # print(mars)
-   return render_template(“index.html”, wine = wine)
+    wine = mongo.db.wine_single_review_db.find_one()
+    # print(mars)
+    return render_template("index.html", wine = wine)
 
-@app.route(“/twitter”)
+@app.route("/reviews")
 def scrape():
+    
+    wine = mongo.db.wine_single_review_db
+    wine_data = Twitter_Review.scrape()
+    wine.update({}, wine_data, upsert=True)
+    
+    return redirect("http://localhost:5000/", code=302)
 
-   wine = mongo.db.wine_single_review_db
-   wine_data = Twitter_Review.scrape()
-   wine.update({}, wine_data, upsert=True)
-
-   return redirect(“http://localhost:5000/“, code=302)
-
-if __name__ == “__main__“:
-   app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
