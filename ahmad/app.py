@@ -6,6 +6,7 @@ import Twitter_Review
 app = Flask(__name__)
 mongo = PyMongo(app, uri=“mongodb://localhost:27017/wine_single_review_db”)
 
+print(mongo)
 # route
 @app.route(“/”)
 def index():

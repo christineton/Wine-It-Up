@@ -14,12 +14,16 @@
     }).addTo(myMap);
 // });
 
-d3.csv('../data/wine_fulldata.csv', function(error, wineData) {
+d3.csv('../data/wine_data_coords.csv', function(error, wineData) {
     if (error) throw error;
-    
-    for (i = 0; i < wineData.length; i++) {
-        var region = wineData[i].first_region;
-        console.log(region);
-    };
+    console.log(wineData);
+
+    for (var i = 0; i < 500; i++) {
+        marker = L.marker([wineData[i].Latitude, wineData[i].Longitude], {
+            draggable: false,
+        }).addTo(myMap);
+
+        marker.bindPopup("<h4>" + wineData[i].title + "<hr> Price per Bottle: " + wineData[i].price) + "</h4>";
+    }
 
 });
