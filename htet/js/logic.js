@@ -6,11 +6,11 @@ var myMap = L.map('map', {
     // layers: [streetmap, marker]
 });
 
-d3.csv('../data/wine_data_coords.csv', function(error, wineData) {
+d3.csv('../data/wine_data_coords_2.csv', function(error, wineData) {
     if (error) throw error;
     console.log(wineData);
 
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 1000; i++) {
         marker = L.marker([wineData[i].Latitude, wineData[i].Longitude], {
             draggable: false,
         }).addTo(myMap);
