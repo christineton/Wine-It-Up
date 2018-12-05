@@ -9,8 +9,8 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/wine_single_review_db")
 # route
 @app.route("/")
 def index():
-    wine = mongo.db.wine_single_review_db.find_one()
-    # print(mars)
+    wine = mongo.db.all_info_coll.find_one()
+    # print(wine)
     return render_template("index.html", wine = wine)
 
 @app.route("/reviews")
