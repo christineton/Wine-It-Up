@@ -1,10 +1,13 @@
 // Getting references
 var $tbody = document.querySelector("#table-body");
 
-var $countryInput = document.querySelector("#country-input");
 var $varietyInput = document.querySelector("#variety-input");
 var $stateInput = document.querySelector("#state-input");
 var $tasterInput = document.querySelector("#taster-input");
+var $wineryInput = document.querySelector("#winery-input");
+var $priceInput = document.querySelector("#price-input");
+
+
 
 
 var $submitButton = document.querySelector("#submit");
@@ -48,10 +51,7 @@ function renderTable() {
 $submitButton.addEventListener("click", filterInput);
 
 
-// Function to filter country
-function filterCountry(review) {
-    return review.country == $countryInput.value.trim();
-};
+
 
 // Function to filter variety
 function filterVariety(review) {
@@ -59,13 +59,25 @@ function filterVariety(review) {
 };
 // filter for state
 function filterState(review) {
-    return review.state == $stateInput.value.trim();
+    return review.province == $stateInput.value.trim();
 };
 
 // filter for taster name
 function filterTaster(review) {
     return review.taster_name == $tasterInput.value.trim();
 };
+
+// Function to filter winery
+function filterWinery(review) {
+    return review.winery == $wineryInput.value.trim();
+};
+
+// Function to filter price
+function filterPrice(review) {
+    return review.price == $priceInput.value.trim();
+};
+
+
 
 // Function to filter input
 function filterInput(event) {
@@ -78,9 +90,9 @@ function filterInput(event) {
 
     // Filters
 
-    if ($countryInput.value) {
-        filteredReviews = filteredReviews.filter(filterCountry);
-    };
+    // if ($countryInput.value) {
+    //     filteredReviews = filteredReviews.filter(filterCountry);
+    // };
 
     if ($varietyInput.value) {
         filteredReviews = filteredReviews.filter(filterVariety);
@@ -94,16 +106,25 @@ function filterInput(event) {
         filteredReviews = filteredReviews.filter(filterTaster);
     };
 
-    // if (!$dateInput && !$cityInput && !$stateInput && !$countryInput && !$shapeInput) {
-    //     filteredReviews = dataSet;
-    // };
+    if ($wineryInput.value) {
+        filteredReviews = filteredReviews.filter(filterWinery);
+    };
+
+    if ($priceInput.value) {
+        filteredReviews = filteredReviews.filter(filterPrice);
+    };
+
+    if (!$varietyInput && !$stateInput && !$tasterInput && !$wineryInput && !$priceInput) {
+        filteredReviews = dataSet;
+    };
 
     // Reset inputs
 
-    $countryInput.value = "";
     $varietyInput.value = "";
     $tasterInput.value = "";
     $stateInput.value = "";
+    $wineryInput.value = "";
+    $priceInput.value = "";
 
     // Re-render table
     $tbody.innerHTML = "";
