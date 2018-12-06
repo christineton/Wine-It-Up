@@ -3,7 +3,7 @@
 ## Data Clean Up <br/>
 We worked with a data set we found on Kaggle that had 10 columns and 130,000+ Wine Reviews.  With this, we found that we had a great combined amount of data such as country, description, designation, points, price, province.  Since our data set was so large, we moved forward with cleaning up the data with Pandas.  Our new data now concluded to be just the US resulting in ~22,000 wine reviews.  We did this by cleaning up all rows that had empty info.
 
-## Data Table:<br/>
+## Data Table <br/>
 
 The data table section (data.html) shows the entire data set when loaded. The records are filterable by 5 fields:
 
@@ -18,7 +18,7 @@ The data table section (data.html) shows the entire data set when loaded. The re
 After the page loads, you can review the records for possible entries to filter on. Entering an exact match for the record and pressing search will return the results.<br/>
 There are a large number of records so the page loads very slowly. This is due to the HTML calling a .js file with json entries for each record. Ideally, this would be optimized by using SQLAlchemy or SQLite. Have a glass of wine while you wait! <br/>
 
-## Mapping Top Wines
+## Map
 ---
 The map shows the top 500 wines featuring custom wine markers (made using [Leaflet Extra Markers](https://github.com/coryasilva/Leaflet.ExtraMarkers) and [Font Awesome](https://fontawesome.com/)). Click on the marker to find out the name of the wine and the price per bottle.
 
