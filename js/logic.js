@@ -103,4 +103,4 @@ function createMarkers(wineData) {
 
 
 
-d3.csv('../top_1000.csv', createMarkers);
+d3.csv('../top_1000.csv', createMarkers(error, data));
