@@ -18,13 +18,8 @@ The data table section (data.html) shows the entire data set when loaded. The re
 After the page loads, you can review the records for possible entries to filter on. Entering an exact match for the record and pressing search will return the results.<br/>
 There are a large number of records so the page loads very slowly. This is due to the HTML calling a .js file with json entries for each record. Ideally, this would be optimized by using SQLAlchemy or SQLite. Have a glass of wine while you wait! <br/>
 
-<<<<<<< HEAD
 ## Mapping Top Wines
 ---
-=======
-## Map <br/>
-
->>>>>>> 212a1eaad8fa4d89fceac5efb9c99834377e3c5b
 The map shows the top 500 wines featuring custom wine markers (made using [Leaflet Extra Markers](https://github.com/coryasilva/Leaflet.ExtraMarkers) and [Font Awesome](https://fontawesome.com/)). Click on the marker to find out the name of the wine and the price per bottle.
 
 ![alt-text](images/map.png)
@@ -33,6 +28,10 @@ The map shows the top 500 wines featuring custom wine markers (made using [Leafl
 The data file provided the region and winery from which the wine was produced. To map each wine, we used [Google Maps API](https://developers.google.com/maps/documentation/) to get the coordinates of each region.
 
 Limitations: For some of the regions, there are more than one with the same name in the world. To improve the accuracy of the coordinates, we combined region 1 and region 2 columns to get a more specific name of the region.
+
+## News
+---
+The page is a live twitter feed of Wine Enthusiasts. By using a widget we were able to publish tweets from @wineenthusiasts and provide a page on facts and news the user can view. 
 
 ## Authors <br/>
 + [Alex Barrera](https://github.com/Alexbp)
