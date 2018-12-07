@@ -33,8 +33,8 @@ function createMap(winePoints) {
     
     var overlayMaps = {
         "Wine Spots": winePoints //,
-        // "Good Wine": layers.GOOD_WINE,
-        // "Great Wine": layers.GREAT_WINE
+        // "Great Cheap Wine": layers.CHEAP_WINE,
+        // "Great Expensive Wine": layers.DEAR_WINE
     };
 
     var myMap = L.map('map', {
