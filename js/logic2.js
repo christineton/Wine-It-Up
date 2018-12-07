@@ -27,8 +27,9 @@ var baseMaps = {
 
 var layers = {
     cheap: new L.LayerGroup(),
-    notEx: new L.LayerGroup(),
-    expensive: new L.LayerGroup()
+    expensive: new L.LayerGroup(),
+    veryEx: new L.LayerGroup(),
+    other: new L.LayerGroup()
 };
 
 var myMap = L.map('map', {
@@ -39,8 +40,8 @@ var myMap = L.map('map', {
     layers: [
         emeraldmap, 
         layers.cheap,
-        layers.notEx,
-        layers.expensive
+        layers.expensive,
+        layers.veryEx
     ]
 });
 
@@ -48,22 +49,11 @@ emeraldmap.addTo(myMap);
 
 var overlays = {
     "Great Cheap Wines": layers.cheap,
-    "Great Not-Too-Expensive Wines": layers.notEx,
-    'Great Expensive Wines': layers.expensive
+    "Great Expensive Wines": layers.expensive,
+    'Great & Very Expensive Wines': layers.veryEx
 };
 
 L.control.layers(baseMaps, overlays).addTo(myMap);
-
-// var info = L.control({
-//     position: 'bottomright'
-// });
-
-// info.onAdd = function() {
-//     var div = L.DomUtil.create('div', 'legend');
-//     return div;
-// };
-
-// info.addTo(myMap);
 
 var icons = {
     cheap: L.ExtraMarkers.icon({
@@ -73,14 +63,14 @@ var icons = {
         shape: 'circle',
         prefix: 'fa'
     }),
-    notEx: L.ExtraMarkers.icon({
+    expensive: L.ExtraMarkers.icon({
         icon: 'fa-wine-glass-alt',
         iconColor: 'white',
         markerColor: 'yellow',
         shape: 'circle',
         prefix: 'fa'
     }),
-    expensive: L.ExtraMarkers.icon({
+    veryEx: L.ExtraMarkers.icon({
         icon: 'fa-wine-glass-alt',
         iconColor: 'white',
         markerColor: 'red',
@@ -90,22 +80,22 @@ var icons = {
 };
 
 d3.csv('../top_1000.csv', function(data) {
-    console.log(data);
+    // console.log(data);
     
     var priceLevel;
 
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < data.length; i++) {
         if (data[i].price <= 30) {
             priceLevel = 'cheap';
         }
-        else if (data[i].price <= 60) {
-            priceLevel = 'notEx'
+        else if (data[i].price <= 80) {
+            priceLevel = 'expensive'
         }
-        else if (data[i].price > 30) {
-            priceLevel = 'expensive';
+        else if (data[i].price > 80) {
+            priceLevel = 'veryEx';
         }
         else {
-            console.log('error')
+            priceLevel = 'noData';
         }
         
         var marker = L.marker([data[i].Latitude, data[i].Longitude], {
