@@ -1,7 +1,13 @@
 # Wine It Up
+Using this ![Wine Reviews Dataset](https://www.kaggle.com/zynicide/wine-reviews), we worked to find out and visualize the answer to these questions:
++ Where are the best wines produced?
++ How much do they cost? Are all great wines expensive? Are there cheap/affordable wines that were scored high by the wine enthusiasts?
++ Who are these wine enthusiasts?
+
+We cleaned up the data set, we built a site that contains a data table, a map showing top wines, and twitter feed from the wine reviewers.
 
 ## Data Clean Up <br/>
-We worked with a data set we found on Kaggle that had 10 columns and 130,000+ Wine Reviews.  With this, we found that we had a great combined amount of data such as country, description, designation, points, price, province.  Since our data set was so large, we moved forward with cleaning up the data with Pandas.  Our new data now concluded to be just the US resulting in ~22,000 wine reviews.  We did this by cleaning up all rows that had empty info.
+The data set had 10 columns and 130,000+ Wine Reviews.  With this, we found that we had a great combined amount of data such as country, description, designation, points, price, province.  Since our data set was so large, we moved forward with cleaning up the data with Pandas.  Our new data now concluded to be just the US resulting in ~22,000 wine reviews.  We did this by cleaning up all rows that had empty info.
 
 ## Data Table <br/>
 
@@ -22,7 +28,7 @@ There are a large number of records so the page loads very slowly. This is due t
 ---
 The map shows the top 500 wines featuring custom wine markers (made using [Leaflet Extra Markers](https://github.com/coryasilva/Leaflet.ExtraMarkers) and [Font Awesome](https://fontawesome.com/)). Click on the marker to find out the name of the wine and the price per bottle.
 
-![alt-text](images/map.png)
+![alt-text](https://github.com/christineton/Wine-It-Up/blob/master/images/map.PNG)
 
 ##### Getting Coordinates for Each Wine Region
 The data file provided the region and winery from which the wine was produced. To map each wine, we used [Google Maps API](https://developers.google.com/maps/documentation/) to get the coordinates of each region.
