@@ -4,7 +4,7 @@ Using this [Wine Reviews Dataset](https://www.kaggle.com/zynicide/wine-reviews),
 + How much do they cost? Are all great wines expensive? Are there cheap/affordable wines that were scored high by the wine enthusiasts?
 + Who are these wine enthusiasts?
 
-We cleaned up the data set, we built a site that contains a data table, a map showing top wines, and twitter feed from the wine reviewers.
+To answer these questions, we cleaned up the data set and built a site that contains a data table, a map showing top wines, and twitter feed from the wine reviewers.
 
 ## Data Clean Up <br/>
 The data set had 10 columns and 130,000+ Wine Reviews.  With this, we found that we had a great combined amount of data such as country, description, designation, points, price, province.  Since our data set was so large, we moved forward with cleaning up the data with Pandas.  Our new data now concluded to be just the US resulting in ~22,000 wine reviews.  We did this by cleaning up all rows that had empty info.
