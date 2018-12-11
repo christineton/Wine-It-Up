@@ -79,7 +79,7 @@ var icons = {
     })
 };
 
-d3.csv('../top_1000.csv', function(data) {
+d3.csv('https://github.com/christineton/Wine-It-Up/blob/master/top_1000.csv', function(data) {
     // console.log(data);
     
     var priceLevel;
