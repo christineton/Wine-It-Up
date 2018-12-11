@@ -84,7 +84,7 @@ d3.csv('../top_1000.csv', function(data) {
     
     var priceLevel;
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < 500; i++) {
         if (data[i].price <= 30) {
             priceLevel = 'cheap';
         }
