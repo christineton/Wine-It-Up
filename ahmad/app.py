@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
 import Twitter_Review
+import json
 
 # Use flask_pymongo to set up mongo connection
 app = Flask(__name__)
@@ -9,9 +10,17 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/wine_single_review_db")
 # route
 @app.route("/")
 def index():
-    wine = mongo.db.all_info_coll.find_one()
+    wine = mongo.db.all_info_coll.find({})
+    wine_list = []
+    for w in wine:
+        w['_id'] = str(w['_id'])
+        wine_list.append(w)
     # print(wine)
-    return render_template("index.html", wine = wine)
+    checking = json.dumps(list(wine_list))
+    print(checking)
+    return render_template("index.html", wine_list = list(wine_list))
+    # return render_template("index.html", wine_list = json.dumps(list(wine_list)))
+
 
 @app.route("/reviews")
 def scrape():
@@ -24,3 +33,18 @@ def scrape():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# @app.route('/')
+# def list_authors():
+#     """List all authors.
+
+#     e.g.: GET /authors"""
+#     wine = mongo.db.all_info_coll.query.all()
+#     # wine = mongo.db.all_info_coll.find({})
+#     w = '<p>Authors:</p>'
+#     for w in wine:
+#         w += '<p>%s</p>' % wine
+#     return w
+
+# if __name__ == '__main__':
+#     app.run()
